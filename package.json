@@ -1,0 +1,23 @@
+{
+  "name": "friend-finder",
+  "version": "1.0.0",
+  "description": "Unit 13 Homework Assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katelynmanuel/friend-finder.git"
+  },
+  "author": "katelynmanuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katelynmanuel/friend-finder/issues"
+  },
+  "homepage": "https://github.com/katelynmanuel/friend-finder#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0"
+  }
+}
