@@ -190,8 +190,69 @@
 
         <div class="col-md-12" style="margin-bottom: 5%;">
             <a href="/">Start Over</a> | 
-            <a href="/api/friendlist" target="_blank">API Friends List</a> |
+            <a href="/api/friends" target="_blank">API Friends List</a> |
             <a href="https://github.com/katelynmanuel/friend-finder" target="_blank>">GitHub Repo</a>
         </div>
     </div>
+
+    <div id="results" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                    <h2 class="modal-title">
+                        <b>Best Match</b>
+                    </h2>
+                </div>
+                <div class="modal-body">
+                    <h3 id="matchName"></h3>
+                    <img id="matchImage" src="" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+</html>
+
+<script type="text/javascript">
+    //Get form input from user
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+        console.log("Submit Button Clicked");
+
+        //Create an object for the user's data.
+        let userData = {
+            name: $("#name").val(),
+            image: $("#image").val(),
+            scores: [
+                $("#questionOne").val(),
+                $("#questionTwo").val(),
+                $("#questionThree").val(),
+                $("#questionFour").val(),
+                $("#questionFive").val(),
+                $("#questionSix").val(),
+                $("#questionSeven").val(),
+                $("#questionEight").val(),
+                $("#questionNine").val(),
+                $("#questionTen").val()
+            ]
+        };
+        //Checking user input.
+        console.log("User name after click: " + userData.name);
+        console.log("Image URL:  " + userData.image);
+        console.log("User scores: " + userData.scores);
+
+        //AJAX post to send the data to the Friends API.
+        $.post("/api/friends", userData, function (data) {
+            if (data) {
+                $("#matchName").text(data.name);
+                console.log("#matchName: " + data.name)
+                $("#matchImage").attr("src", data.image);
+                $("#results").modal("toggle");
+            }
+        });
+    });
+</script>

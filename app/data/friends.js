@@ -1,6 +1,6 @@
 let friends = [
     {
-        "name": "Dwight Shrute",
+        "name": "Dwight Schrute",
         "photo": "https://theofficeanalytics.files.wordpress.com/2017/11/dwight.jpeg?w=200",
         "scores": [1, 4, 5, 5, 4, 1, 3, 1, 3, 2]
     },
