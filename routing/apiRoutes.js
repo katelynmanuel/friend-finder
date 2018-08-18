@@ -12,5 +12,27 @@ module.exports = function (app) {
     app.post("/api/friends", function (req, res) {
         let newFriend = req.body;
         console.log("New friend data: " + newFriend);
+        let bestFriend;
+        let bestFriendDifference = Infinity;
+        //Getting total for friends
+        for (let i = 0; i < friends.length; i++) {
+            let newFriendTotal = 0;
+            let friendsTotal = 0;
+            for (let j = 0; j < friends[i].scores.length; j++) {
+                friendsTotal += parseInt(friends[i].scores[j]);
+                newFriendTotal += parseInt(newFriend.scores[j]);
+                console.log("New Friend Score" + newFriend.scores[j]);
+            }
+            console.log("Friends Total: " + friendsTotal);
+            console.log("new Friend total: " + newFriendTotal);
+            let difference = Math.abs(friendsTotal - newFriendTotal);
+            console.log("Difference: " + difference);
+            if (difference < bestFriendDifference) {
+                bestFriend = friends[i];
+                bestFriendDifference = difference;
+            }
+        }
+        friends.push(newFriend);
+        res.json(bestFriend)
     })
 };
