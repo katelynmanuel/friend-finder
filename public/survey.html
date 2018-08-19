@@ -13,6 +13,13 @@
 
 </head>
 
+<style>
+    #img { 
+        height: 200px;
+        width: 200px;
+    }
+</style>
+
 <body>
     <div class="container">
         <div class="col-md-12">
@@ -25,11 +32,11 @@
             <form id="survey">
                 <div class="form-group">
                     <label for="Name">Name (Required)</label>
-                    <input type="text" class="form-control" id="name" aria-describedby="nameField" required=""></input>
+                    <input type="text" class="form-control" id="name" aria-describedby="nameField" required="">
                 </div>
                 <div class="form-group">
                     <label for="Image">Link to Photo Image (Required)</label>
-                    <input type="url" class="form-control" id="image" aria-describedby="imageField" required=""></input>
+                    <input type="url" class="form-control" id="image" aria-describedby="imageField" required="">
                 </div>
                 <hr>
                 <!--Question One-->
@@ -199,14 +206,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">X</button>
-                    <h2 class="modal-title">
+                    <!-- <button type="button" class="close" data-dismiss="modal">x</button> -->
+                    <h2 class="modal-title" style="text-align: left;">
                         <b>Best Match</b>
                     </h2>
                 </div>
                 <div class="modal-body">
                     <h3 id="matchName"></h3>
-                    <img id="matchImage" src="" alt="">
+                    <img id="matchImage" src="" alt="" style="height: 150px; width: 150px;">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -252,6 +259,7 @@
                 $("#matchName").text(data.name);
                 console.log("#matchName: " + data.name)
                 $("#matchImage").attr("src", data.image);
+                console.log("This is the data.image: " + data.image);
                 $("#results").modal("toggle");
             }
         });
