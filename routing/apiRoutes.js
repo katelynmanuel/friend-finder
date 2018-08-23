@@ -40,6 +40,6 @@ module.exports = function (app) {
         friends.push(newFriend);
         console.log("Below push for api data: " + JSON.stringify(newFriend));
         res.json(bestFriend)
-        console.log("res.json: " + JSON.stringigy(bestFriend));
+        console.log("res.json: " + JSON.stringify(bestFriend));
     })
 };
